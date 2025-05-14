@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="error-container">
+    <div class="error-content">
+        <div class="error-image-placeholder">
+            <img src="{{ url_for('static', path='/404.jpg') }}" alt="Ошибка 404" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div class="error-square">
+            <p>Данной страницы не существует</p>
+        </div>
+    </div>
+    
+    <div class="error-button">
+        <a href="/"><button class="home-button">На главную</button></a>
+    </div>
+</div>
+{% endblock %}
