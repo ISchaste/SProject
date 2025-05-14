@@ -8,21 +8,47 @@
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="/">Главная</a></li>
-                <li><a href="/register">Регистрация</a></li>
-                <li><a href="/login">Вход</a></li>
-            </ul>
-        </nav>
+        <div class="header-left">
+            <button class="menu-button" id="menuButton">
+                <div class="square-icon"></div>
+            </button>
+        </div>
+        <div class="header-title"> </div>
     </header>
+    <div class="side-menu" id="sideMenu">
+        <div class="menu-links">
+            <a href="/">Главная</a>
+            <a href="/register">Регистрация</a>
+            <a href="/login">Войти</a>
+        </div>
+    </div>
+    <div class="overlay" id="overlay"></div>
 
     <main>
         {% block content %}{% endblock %}
     </main>
-
     <footer>
         <p>ООО "СчастьеГрад"</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.getElementById('menuButton');
+            const sideMenu = document.getElementById('sideMenu');
+            const overlay = document.getElementById('overlay');
+
+            menuButton.addEventListener('click', function() {
+                sideMenu.classList.toggle('open');
+                overlay.classList.toggle('active');
+                document.body.classList.toggle('menu-open');
+            });
+
+            overlay.addEventListener('click', function() {
+                sideMenu.classList.remove('open');
+                overlay.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
+        });
+    </script>
 </body>
 </html>
